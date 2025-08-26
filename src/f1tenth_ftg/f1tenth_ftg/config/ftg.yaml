@@ -1,0 +1,39 @@
+ftg_node:
+  ros__parameters:
+    # Topics
+    scan_topic: "/scan"           # 필요시 /ego_racecar/scan
+    drive_topic: "/drive"         # AckermannDriveStamped
+    cmd_vel_topic: "/cmd_vel"     # 과제1 연동 시 사용
+    frame_id: "base_link"
+
+    # Vehicle & limits
+    wheelbase: 0.33
+    max_steering_deg: 28.0
+
+    # Preprocessing
+    fov_deg: 180.0         # 전방만 사용
+    clip_min: 0.02         # [m]
+    clip_max: 10.0         # [m]
+    median_k: 5            # 홀수(노이즈 spike 억제)
+    mean_k: 1              # 이동평균(선택)
+    downsample: 2          # 1=그대로, 2=반감
+
+    # Obstacle model
+    danger_dist: 0.50      # 이보다 가까우면 위험
+    bubble_radius: 0.30    # 최근접물체 주변 안전 버블[m]
+
+    # Gap → Best point
+    bestpoint_smooth_k: 5
+    steer_lpf_alpha: 0.6   # 0~1 (클수록 빠름)
+
+    # Speed planner
+    max_speed: 2.5
+    min_speed: 0.5
+    k_steer_speed: 1.0     # |조향| 기반 감속
+    k_dist_speed: 1.5      # 전방 거리 기반 가속
+    front_window_deg: 15.0 # 전방 윈도우(±deg)
+
+    # Outputs
+    publish_ackermann: true
+    publish_twist: false
+    publish_markers: true

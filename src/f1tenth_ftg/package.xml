@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>f1tenth_ftg</name>
+  <version>0.0.1</version>
+  <description>F1TENTH LiDAR preprocessing + FTG avoidance</description>
+  <maintainer email="you@example.com">you</maintainer>
+  <license>Apache-2.0</license>
+
+  <!-- ament_python 패키지 선언 -->
+  <buildtool_depend>ament_python</buildtool_depend>
+
+  <exec_depend>rclpy</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>ackermann_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+
+  <!-- 빌드 타입 명시 (이게 없으면 ament_cmake로 오인됨) -->
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>
